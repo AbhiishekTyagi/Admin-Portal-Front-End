@@ -1,0 +1,962 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: Urbanist, system-ui, Avenir,Arial, Helvetica, sans-serif;
+  color-scheme: light dark;
+}
+
+:root
+{
+ --bg-color:#f4f3ff;
+ --btn-color:#646cff;
+ --dark-color:#242424;
+ --helper-color:#99b9ff;
+}
+
+html{
+  font-size: 62.5%;
+}
+/* base style  */
+body
+{
+  margin:0;
+  min-width: 32rem;
+  min-height: 100vh;
+}
+h1
+{
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+p,
+li,
+label,
+input,
+textarea {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.6rem;
+}
+
+a{
+   font-weight: 500;
+   font-size: 1.8rem;
+   letter-spacing: 0.1rem;
+   color:var(--btn-color);
+   text-decoration: inherit;
+}
+
+li{
+  list-style: none;
+}
+
+/* layout Rule */
+.container
+{
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin:0 auto;
+}
+.grid
+{
+  display: grid;
+  gap:6.4rem;
+}
+.grid-two-cols
+{
+  grid-template-columns:repeat(2, 1fr);
+}
+
+/* Reusable code */
+button {
+  text-transform: capitalize;
+  padding: 1rem 2.2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  background-color: var(--btn-color);
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
+  border: 0.1rem solid transparent;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  transition: border-color 0.3s;
+  -webkit-transition: border-color 0.3s;
+  -moz-transition: border-color 0.3s;
+  -ms-transition: border-color 0.3s;
+  -o-transition: border-color 0.3s;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 0.2rem var(--btn-color);
+  margin-left: 3.2rem;
+}
+
+/* Hero Section */
+.section-hero {
+  & .grid {
+    align-items: center;
+  }
+
+  .hero-content {
+    & p {
+      margin: 2.4rem 0 4.8rem 0;
+      &:first-child {
+        margin: 0 0 1.2rem 0;
+      }
+    }
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    & img {
+      width: 70%;
+      height: auto;
+    }
+  }
+}
+/* End Hero */
+
+/***** analytics Section *****/
+.section-analytics {
+  margin: 9.6rem 0;
+
+  & .container {
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+  }
+
+  & .grid {
+    color: var(--dark-color);
+
+    & .div1 {
+      text-align: center;
+      border-right: 0.2rem solid var(--dark-color);
+
+      &:last-child {
+        border: none;
+      }
+      & h2 {
+        font-size: 4.8rem;
+      }
+      & p {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+/** -----------------------
+** contact section css
+** -------------------------  */
+.section-contact {
+  & .contact-content {
+    padding: 0;
+
+    & h1 {
+      margin-bottom: 3.2rem;
+    }
+  }
+  & .container {
+    padding-top: 3.2rem;
+  }
+  & .contact-img {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    & img {
+      width: 60%;
+      height: auto;
+    }
+  }
+
+  & .section-form {
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+    }
+    & label {
+      display: block;
+      margin-bottom: 1.2rem;
+      text-transform: capitalize;
+    }
+
+    & input,
+    textarea {
+      width: 80%;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+}
+/*? state rules  */
+
+button:hover {
+  box-shadow: inset 0 0 0 0.2rem var(--bg-color);
+  /* border: 0.2rem solid #fff; */
+}
+
+a:hover,
+a.active {
+  color: #535bf2;
+}
+
+/* pseduo elements  */
+.main-heading {
+  position: relative;
+  text-transform: capitalize;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 0.5rem;
+    background-color: var(--btn-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover,
+  a.active {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* error page  */
+#error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#error-page .content {
+  max-width: 70rem;
+  text-align: center;
+}
+.content h2.header {
+  font-size: 18vw;
+  line-height: 1em;
+  animation: animate 10s ease-in-out infinite;
+  background: -webkit-repeating-linear-gradient(
+    -60deg,
+    #71b7e6,
+    var(--btn-color),
+    #b98acc,
+    #ee8176,
+    #b98acc,
+    var(--btn-color),
+    #9b59b6
+  );
+  background-size: 500%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+  position: relative;
+  -webkit-animation: animate 10s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.content h4 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.content .btns {
+  margin: 25px 0;
+  display: inline-flex;
+  justify-content: center;
+}
+.content .btns a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  border: 2px solid var(--btn-color);
+  color: var(--btn-color);
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.content .btns a:hover {
+  background: var(--btn-color);
+  color: #fff;
+}
+
+/** -----------------------
+** registration section css
+** -------------------------  */
+
+.section-registration {
+  padding: 0 3.2rem;
+
+  & .container {
+    /* background-color: #fff; */
+    padding-top: 3.2rem;
+    align-items: center;
+
+    & img {
+      width: 80%;
+      height: auto;
+    }
+  }
+
+  & .registration-form {
+    & label {
+      display: block;
+      margin: 2.4rem 0 0.8rem 0;
+      text-transform: capitalize;
+    }
+    & input {
+      width: 80%;
+      padding: 0.6rem 0.6rem;
+    }
+
+    & button {
+      margin-top: 3.2rem;
+    }
+  }
+}
+
+.adminNav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.adminContainer {
+  display: grid;
+  padding-top: 0;
+  grid-template-columns: 1fr 3fr;
+}
+
+.adminList {
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.adminList li {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+
+/** -----------------------
+** services section css
+** -------------------------  */
+
+.section-services {
+  & .container:first-child {
+    padding: 0;
+  }
+  & .grid-three-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+  }
+
+  & .card {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    border: 0.2rem solid var(--helper-color);
+
+    & .card-img {
+      text-align: center;
+      & img {
+        width: 70%;
+        height: auto;
+        filter: drop-shadow(0 0 2rem 2rem #fff);
+        -webkit-filter: drop-shadow(0 0 2rem 2rem #fff);
+      }
+    }
+
+    & .card-details {
+      padding: 2.4rem;
+
+      & .grid p {
+        font-size: 1.4rem;
+      }
+
+      & h2 {
+        font-size: 3.2rem;
+        margin: 1.2rem 0 2.4rem 0;
+      }
+    }
+  }
+}
+/* ===== Admin Users Page Wrapper ===== */
+.admin-users-section {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: radial-gradient(circle at top left, #e0f2fe 0, #f9fafb 45%, #fef9c3 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Top container (heading) */
+.admin-users-section > .container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Page title */
+.admin-users-section h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  position: relative;
+}
+
+/* Underline under "Admin User data" – longer */
+.admin-users-section h1::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 4px;
+  border-radius: 999px;
+  margin-top: 0.4rem;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+}
+
+/* ===== Table Card Container ===== */
+.admin-users {
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 18px;
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(148, 163, 184, 0.18);
+  padding: 1.5rem 1.75rem;
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+
+/* ===== Table Base ===== */
+.admin-users table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+/* Header row – darker & taller */
+.admin-users thead {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: #e5e7eb;
+}
+
+.admin-users thead tr {
+  height: 3.5rem;
+}
+
+/* All headings */
+.admin-users th {
+  padding: 1.1rem 1.4rem;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+/* UPDATE + DELETE headings center align + thoda chhote */
+.admin-users th:nth-last-child(2),
+.admin-users th:last-child {
+  text-align: center;
+  width: 120px;       /* column ko compact rakha */
+}
+
+/* Body cells */
+.admin-users td {
+  padding: 0.9rem 1.4rem;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+  color: #374151;
+}
+
+/* First column (Name) thoda bold */
+.admin-users td:first-child {
+  font-weight: 500;
+}
+
+/* Zebra rows */
+.admin-users tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Hover effect on row */
+.admin-users tbody tr {
+  transition: background-color 0.2s ease, transform 0.12s ease;
+}
+
+.admin-users tbody tr:hover {
+  background-color: #e0f2fe;
+  transform: translateY(-1px);
+}
+
+/* Center UPDATE & DELETE column content */
+.admin-users td:nth-last-child(2),
+.admin-users td:last-child {
+  text-align: center;
+}
+
+/* ===== Delete Button Styling (last column button) ===== */
+
+/* Base button inside last column */
+.admin-users td:last-child button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 1.1rem;        /* yahan se button chhota rakha */
+  min-width: 90px;                /* compact width */
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #f97373, #ef4444);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.45);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Icon before text */
+.admin-users td:last-child button::before {
+  content: "🗑️";
+  font-size: 0.85rem;
+}
+
+/* Hover / active */
+.admin-users td:last-child button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 9px 20px rgba(239, 68, 68, 0.6);
+}
+
+.admin-users td:last-child button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.5);
+}
+
+
+/* Table Layout */
+.admin-users-section {
+  padding: 2rem 0;
+  background-color: #f9fafb;
+}
+
+.admin-users table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin-users th,
+.admin-users td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-users thead {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* General Button Style */
+.edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.55rem 1.4rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Edit Button (Blue Gradient) */
+.edit {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.edit:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Delete Button (Red Gradient) */
+.btn-delete {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(220, 38, 38, 0.6);
+}
+
+/* Table Hover Effect */
+.admin-users tbody tr:hover {
+  background-color: #f3f4f6;
+  transition: background 0.3s ease;
+}
+
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .admin-users-section {
+    padding: 2rem 0.75rem;
+  }
+
+  .admin-users-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .admin-users {
+    padding: 0.9rem 0.9rem;
+    border-radius: 14px;
+  }
+
+  .admin-users th,
+  .admin-users td {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  .admin-users th:nth-last-child(2),
+  .admin-users th:last-child {
+    width: 90px;
+  }
+
+  .admin-users td:last-child button {
+    padding: 0.3rem 0.9rem;
+    min-width: 80px;
+    font-size: 0.78rem;
+  }
+}
+/* 🌈 ADMIN CONTACT PAGE */
+.contact-admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 50%, #fefce8 100%);
+  padding: 3rem 1rem;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🏷️ Header Section */
+.contact-admin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-admin-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.03em;
+}
+
+.contact-admin-header .underline {
+  width: 220px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  border-radius: 999px;
+  margin: 0.6rem auto;
+}
+
+/* 🧱 Contact Cards Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  width: 100%;
+  max-width: 1150px;
+  padding: 0 1rem;
+}
+
+/* 💌 Individual Contact Card */
+.contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 1.4rem 1.6rem;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+}
+
+/* 🧾 Contact Field Text */
+.contact-field {
+  font-size: 1.05rem;
+  color: #334155;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.contact-field span {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* 💙 Modern Delete Button */
+.modern-btn {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 0.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Hover Glow + Shine Effect */
+.modern-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.6);
+}
+
+.modern-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.modern-btn:hover::after {
+  left: 120%;
+}
+
+/* 🖥️ Hover Accent Border Animation */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  transition: width 0.4s ease;
+}
+
+.contact-card:hover::before {
+  width: 100%;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .contact-admin-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .contact-card {
+    padding: 1.2rem;
+    min-height: 180px;
+  }
+
+  .contact-field {
+    font-size: 1rem;
+  }
+
+  .modern-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+
+
+
+/* ✨ Cool Modern Button (for Edit link) */
+.cool-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.4rem;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 Hover Glow & Slide Effect */
+.cool-button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.6);
+}
+
+/* 💫 Optional Shine Effect */
+.cool-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.cool-button:hover::after {
+  left: 120%;
+}
+
+/* 📱 Responsive Tweak */
+@media (max-width: 768px) {
+  .cool-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+/** -----------------------
+** media query section css
+** -------------------------  */
+
+@media (width <= 998px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .section-services {
+    & .grid-three-cols {
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+  }
+
+  .section-registration {
+    & .container {
+      & .reg-img img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (width <= 798px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .section-registration {
+    & .container {
+      & .reg-img img {
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    & .registration-form {
+      & input {
+        width: 100%;
+        padding: 0.6rem 0.6rem;
+      }
+    }
+  }
+}
+

@@ -207,7 +207,7 @@ function Login() {
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter email"
                     required
                     autoComplete="off"
                     value={user.email}
@@ -221,7 +221,7 @@ function Login() {
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Enter your password"
+                    placeholder="Enter password"
                     required
                     autoComplete="off"
                     value={user.password}
